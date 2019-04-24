@@ -4,6 +4,10 @@ import ArticlesList from './components/ArticlesList';
 import SelectCategory from './components/SelectCategory';
 import { getArticlesByQuery } from './service/api';
 import CounterRedux from './CounterRedux';
+import MenuPage from './components/JsonServer/MenuPage';
+import Toggler from './components/Toggler';
+import MainContext from './components/Context/MainContext';
+import AuthManager from './components/Context/AuthManager';
 
 const Categories = ['html', 'css', 'javaScript', 'react'];
 class App extends Component {
@@ -50,12 +54,25 @@ class App extends Component {
     return (
       <div className="container">
         <Navigation />
-        <CounterRedux />
+        <MainContext />
+        <AuthManager />
+
+        <Toggler>
+          {({ on, toggle }) => (
+            <>
+              <button type="button" onClick={toggle}>
+                Toggle
+              </button>
+              {on && <CounterRedux />}
+            </>
+          )}
+        </Toggler>
         <SelectCategory
           onChangeCategory={this.handleChangeCategory}
           category={category}
           options={Categories}
         />
+        <MenuPage />
         {error && <p>{error.message}</p>}
         {isLoaded ? <p>Loading...</p> : <ArticlesList articles={articles} />}
       </div>

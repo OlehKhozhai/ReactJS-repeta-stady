@@ -11,8 +11,6 @@ const articlesMapper = articles => {
 };
 
 export const getArticlesByQuery = query =>
-  Axios.get(API_URL + query).then(response =>
-    articlesMapper(response.data.hits),
-  );
+  Axios.get(API_URL + query).then(response => articlesMapper(response.data.hits));
 
 export const postArticles = '';

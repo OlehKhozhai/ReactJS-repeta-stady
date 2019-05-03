@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+
 class UserProfile extends Component {
+  state = {};
+
   render() {
-    const { name, year } = this.props;
+    const { user, SignOut } = this.props;
     return (
       <div>
-        <p>User name: {name}</p>
-        <p>User year: {year}</p>
+        <p>User name: {user}</p>
+        <button type="button" onClick={SignOut}>
+          SignOut
+        </button>
       </div>
     );
   }

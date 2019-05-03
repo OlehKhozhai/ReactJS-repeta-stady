@@ -1,28 +1,30 @@
-import React, { Component, createContext } from 'react';
-import UserProfile from './UserProfile';
+// import React, { Component, createContext } from 'react';
+// import AuthManager from './AuthManager';
 
-export const { Provider, Consumer } = createContext({
-  isAuth: false,
-  user: {},
-  SignIn: () => null,
-  SignOut: () => null,
-});
+// export const AuthContext = createContext({
+//   isAuth: true,
+//   user: {},
+//   SignIn: () => null,
+//   SignOut: () => null,
+// });
 
-class MainContext extends Component {
-  render() {
-    return (
-      <Provider
-        value={{
-          isAuth: false,
-          user: { name: 'test' },
-          SignIn: () => console.log('in'),
-          SignOut: () => console.log('out'),
-        }}
-      >
-        <UserProfile name="Oleh" year="1923" />
-      </Provider>
-    );
-  }
-}
+// class MainContext extends Component {
+//   state = {};
 
-export default MainContext;
+//   render() {
+//     return (
+//       <AuthContext.Provider
+//         value={{
+//           isAuth: true,
+//           user: 'test',
+//           SignIn: () => console.log('in'),
+//           SignOut: () => console.log('out'),
+//         }}
+//       >
+//         <AuthManager />
+//       </AuthContext.Provider>
+//     );
+//   }
+// }
+
+// export default MainContext;

@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react';
+import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ArticlesList from './components/ArticlesList';
 import SelectCategory from './components/SelectCategory';
@@ -6,10 +7,15 @@ import { getArticlesByQuery } from './service/api';
 import CounterRedux from './CounterRedux';
 import MenuPage from './components/JsonServer/MenuPage';
 import Toggler from './components/Toggler';
-import MainContext from './components/Context/MainContext';
 import AuthManager from './components/Context/AuthManager';
+import AuthContextProvider from './components/Context/AuthContext';
+import About from './components/Router/About';
+import Home from './components/Router/Home';
+import Articles from './components/Router/Articles';
+import Article from './components/Router/Article';
 
 const Categories = ['html', 'css', 'javaScript', 'react'];
+
 class App extends Component {
   refContainer = createRef();
 
@@ -53,28 +59,54 @@ class App extends Component {
     const { articles, isLoaded, error, category } = this.state;
     return (
       <div className="container">
-        <Navigation />
-        <MainContext />
-        <AuthManager />
+        <ul>
+          <li>
+            <NavLink exact to="/" activeClassName="text-danger">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="text-danger" to="/about">
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="text-danger" to="/articles">
+              Articles
+            </NavLink>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/" render={props => <Home title="Home Page" {...props} />} />
+          <Route path="/about" component={About} />
+          <Route exact path="/articles" component={Articles} />
+          <Route path="/articles/:id" component={Article} />
+          <Redirect to="/" />
+        </Switch>
 
-        <Toggler>
-          {({ on, toggle }) => (
-            <>
-              <button type="button" onClick={toggle}>
-                Toggle
-              </button>
-              {on && <CounterRedux />}
-            </>
-          )}
-        </Toggler>
-        <SelectCategory
-          onChangeCategory={this.handleChangeCategory}
-          category={category}
-          options={Categories}
-        />
-        <MenuPage />
-        {error && <p>{error.message}</p>}
-        {isLoaded ? <p>Loading...</p> : <ArticlesList articles={articles} />}
+        <AuthContextProvider>
+          <Navigation />
+          <AuthManager />
+
+          <Toggler>
+            {({ on, toggle }) => (
+              <>
+                <button type="button" onClick={toggle}>
+                  Toggle
+                </button>
+                {on && <CounterRedux />}
+              </>
+            )}
+          </Toggler>
+          <SelectCategory
+            onChangeCategory={this.handleChangeCategory}
+            category={category}
+            options={Categories}
+          />
+          <MenuPage />
+          {error && <p>{error.message}</p>}
+          {isLoaded ? <p>Loading...</p> : <ArticlesList articles={articles} />}
+        </AuthContextProvider>
       </div>
     );
   }

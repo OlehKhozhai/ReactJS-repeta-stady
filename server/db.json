@@ -1,40 +1,39 @@
 {
   "menu": [
     {
-      "id": 2,
-      "name": "Some Food 2",
-      "price": 200,
-      "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game"
-    },
-    {
       "id": 3,
       "name": "Some Food 3",
       "price": 300,
-      "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game"
+      "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
+      "category": "sport"
     },
     {
       "id": 4,
       "name": "Some Food 4",
       "price": 400,
-      "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game"
+      "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
+      "category": "health"
     },
     {
       "name": "Some Food",
       "price": 3400,
       "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
-      "id": 6
+      "id": 6,
+      "category": "sport"
     },
     {
       "name": "Some Food",
       "price": 3400,
       "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
-      "id": 7
+      "id": 7,
+      "category": "health"
     },
     {
       "name": "Some Food",
       "price": 3400,
       "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
-      "id": 8
+      "id": 8,
+      "category": "sport"
     }
   ]
 }

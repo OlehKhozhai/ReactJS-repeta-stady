@@ -26,7 +26,7 @@
       "price": 3400,
       "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
       "id": 7,
-      "category": "health"
+      "category": "all"
     },
     {
       "name": "Some Food",
@@ -34,6 +34,23 @@
       "description": "Show HN: Airmash – Multiplayer Missile Warfare HTML5 Game",
       "id": 8,
       "category": "sport"
+    }
+  ],
+  "notes": [
+    {
+      "id": "dadadad",
+      "text": "notest1",
+      "completed": true
+    },
+    {
+      "id": "dadadsdad",
+      "text": "notes2",
+      "completed": true
+    },
+    {
+      "text": "gerger",
+      "completed": true,
+      "id": "Q240dZD"
     }
   ]
 }

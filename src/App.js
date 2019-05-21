@@ -4,7 +4,8 @@ import Navigation from './components/Navigation';
 import ArticlesList from './components/ArticlesList';
 import SelectCategory from './components/SelectCategory';
 import { getArticlesByQuery } from './service/api';
-import CounterRedux from './CounterRedux';
+// import CounterRedux from './CounterRedux';
+// import TestCounter from './reduxTest/TestCounter';
 import MenuPage from './components/JsonServer/MenuPage';
 import Toggler from './components/Toggler';
 import AuthManager from './components/Context/AuthManager';
@@ -13,6 +14,7 @@ import About from './components/Router/About';
 import Home from './components/Router/Home';
 import Articles from './components/Router/Articles';
 import Article from './components/Router/Article';
+import MainToDo from './components/ToDo/MainToDo';
 
 const Categories = ['html', 'css', 'javaScript', 'react'];
 
@@ -59,6 +61,7 @@ class App extends Component {
     const { articles, isLoaded, error, category } = this.state;
     return (
       <div className="container">
+        <MainToDo />
         <ul>
           <li>
             <NavLink exact to="/" activeClassName="text-danger">
@@ -87,14 +90,14 @@ class App extends Component {
         <AuthContextProvider>
           <Navigation />
           <AuthManager />
-
+          {/* <TestCounter /> */}
           <Toggler>
             {({ on, toggle }) => (
               <>
                 <button type="button" onClick={toggle}>
                   Toggle
                 </button>
-                {on && <CounterRedux />}
+                {/* {on && <CounterRedux />} */}
               </>
             )}
           </Toggler>

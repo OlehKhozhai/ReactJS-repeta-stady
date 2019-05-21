@@ -5,13 +5,20 @@ class ArticlesList extends Component {
   state = {};
 
   render() {
-    const { articlesForRoute, match } = this.props;
+    const { articlesForRoute, match, location } = this.props;
     return (
       <>
         <ul>
           {articlesForRoute.map(article => (
             <li key={article.id}>
-              <Link to={`${match.url}/${article.id}`}>{article.name}</Link>
+              <Link
+                to={{
+                  pathname: `${match.url}/${article.id}`,
+                  state: { from: location },
+                }}
+              >
+                {article.name}
+              </Link>
             </li>
           ))}
         </ul>

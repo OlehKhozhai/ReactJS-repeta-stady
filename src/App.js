@@ -15,6 +15,8 @@ import Home from './components/Router/Home';
 import Articles from './components/Router/Articles';
 import Article from './components/Router/Article';
 import MainToDo from './components/ToDo/MainToDo';
+import Basket from './components/Basket/Basket';
+import Produts from './components/Basket/Produts';
 
 const Categories = ['html', 'css', 'javaScript', 'react'];
 
@@ -61,7 +63,7 @@ class App extends Component {
     const { articles, isLoaded, error, category } = this.state;
     return (
       <div className="container">
-        <MainToDo />
+        {/* <MainToDo /> */}
         <ul>
           <li>
             <NavLink exact to="/" activeClassName="text-danger">
@@ -78,10 +80,22 @@ class App extends Component {
               Articles
             </NavLink>
           </li>
+          <li>
+            <NavLink activeClassName="text-danger" to="/basket">
+              BASKET
+            </NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="text-danger" to="/product">
+              PRODUCT
+            </NavLink>
+          </li>
         </ul>
         <Switch>
           <Route exact path="/" render={props => <Home title="Home Page" {...props} />} />
           <Route path="/about" component={About} />
+          <Route path="/basket" component={Basket} />
+          <Route path="/product" component={Produts} />
           <Route exact path="/articles" component={Articles} />
           <Route path="/articles/:id" component={Article} />
           <Redirect to="/" />

@@ -1,0 +1,12 @@
+export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const SIGN_UP_ERROR = 'SIGN_UP_ERROR';
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+
+export const LOGOUT = 'LOGOUT';
+
+export const REFRESH_USER_SUCCESS = 'REFRESH_USER_SUCCESS';
+export const REFRESH_USER_ERROR = 'REFRESH_USER_ERROR';
